@@ -15,91 +15,98 @@ document.addEventListener('DOMContentLoaded', () => {
     //     return x + y;
     // }
 
-    //     2.Створи функцію, яка буде виводити кількість переданих їй аргументів.
+    // 2.Створи функцію, яка буде виводити кількість переданих їй аргументів.
 
-    // function countArguments() {
-    //     console.log(arguments.length);
-    // }
-    // countArguments('orange', 1, 25, 14789);
+    function countArguments() {
+        alert('Кількість переданих аргументів: ' + arguments.length);
+    }
+    countArguments('orange', 1, 25, 14789);
+
 
     //    3. Напиши функцію, яка приймає 2 числа і повертає :
     // -1, якщо перше число менше, ніж друге; 
     // 1 - якщо перше число більше, ніж друге; 
     // 0 - якщо числа рівні.
 
-    // let a = +prompt('Веведіть перше число');
-    // let b = +prompt('Введіть друге число');
-    // function compare(a, b) {
-    //     if (isNaN(a) || isNaN(b)) {
-    //         alert('Обидва значення мають бути числами.');
-    //     }
-    //     else if (a > b) {
-    //         alert(-1);
-    //     } else if (b > a) {
-    //         alert(1);
-    //     } else if (a === b) {
-    //         alert(0)
-    //     }
-    // }
-    // alert(compare(a, b));
+    let a = +prompt('Веведіть перше число для визначення, яке більше/менше');
+    let b = +prompt('Введіть друге число для визначення, яке більше/менше');
+    function compare(a, b) {
+        if (isNaN(a) || isNaN(b)) {
+            alert('Обидва значення мають бути числами.');
+        }
+        else if (a > b) {
+            return (-1);
+        } else if (b > a) {
+            return (1);
+        } else if (a === b) {
+            return (0)
+        }
+    }
+    alert(compare(a, b));
 
     //    4.Напиши функцію, яка обчислює факторіал переданого їй числа.
 
-    // let c = +prompt('Веведіть, будь ласка, число:');
-    // function factorial(n) {
-    //     return (n != 1) ? n * factorial(n - 1) : 1;
-    // }
-    // alert(factorial(c));
+    let c = +prompt('Веведіть, будь ласка, число для обрахунку факторіалу:');
+    function factorial(n) {
+        let result = 1;
+        let f = 1;
+        while (f <= n) {
+            result = result * f;
+            f++;
+        }
+        return (result);
+    }
+    alert(factorial(c));
 
     //   5.Напиши функцію, яка приймає три окремі цифри і перетворює їх в одне число. Наприклад: цифри 1, 4, 9 перетворяться в число 149.
 
-    // let x = +prompt('Веведіть, будь ласка, цифру:');
-    // let y = +prompt('Веведіть, будь ласка, ще одну цифру:');
-    // let z = +prompt('Та ще одну:');
-    // function getNumber(a, b, c) {
-    //     return String(a) + String(b) + String(c);
-    // }
-    // alert(getNumber(x, y, z));
+    let x = +prompt('Веведіть, будь ласка, цифру:');
+    let y = +prompt('Веведіть, будь ласка, ще одну цифру:');
+    let z = +prompt('Та ще одну:');
+    function getNumber(a, b, c) {
+        return String(a) + String(b) + String(c);
+    }
+    alert(getNumber(x, y, z));
 
-    //  6.Напиши функцію, яка приймає довжину і ширину прямокутника і обчислює його площу. Якщо в функцію передали 1 параметр, то вона обчислює площу квадрата.
+    // 6.Напиши функцію, яка приймає довжину і ширину прямокутника і обчислює його площу.Якщо в функцію передали 1 параметр, то вона обчислює площу квадрата.
 
-    // let width = +prompt('Введи, будь ласка, довжину прямокутника');
-    // let height = +prompt('Введи, будь ласка, висоту прямокутника');
-    // function getArea(x, y) {
-    //     if ((typeof x) != 'number' && (typeof y) != 'number' || x === 0 || y === 0) {
-    //         return `Введіть, будь ласка, коректно дані`;
-    //     } else if (x && y) {
-    //         return x * y;
-    //     } else if ((typeof y) === 'undefined') {
-    //         return x * x;
-    //     }
-    // }
+    let width = +prompt('Введи, будь ласка, довжину прямокутника');
+    let height = +prompt('Введи, будь ласка, висоту прямокутника');
+    function getArea(k, l) {
+        if ((typeof k) != 'number' && (typeof l) != 'number' || k === 0 || l === 0) {
+            return `Введіть, будь ласка, коректно дані`;
+        } else if (k && l) {
+            return k * l;
+        } else if ((typeof l) === 'undefined') {
+            return k * k;
+        }
+    }
 
-    // alert(getArea(width, height));
+    alert(getArea(width, height));
 
     // Норма2
 
     // 1.Напиши функцію, яка перевіряє, чи є передане їй число “досконалим числом”. Досконале число - це число, яке дорівнює сумі всіх своїх дільників.
 
-    // let num = +prompt('Введи, будь ласка, будь-яке число');
-    // function perfectNumber(n) {
-    //     if (isNaN(n)) {
-    //         return 'Значення має бути числом. Будь ласка, перевірте вказані дані.';
-    //     } else if (!Number.isInteger(n)) {
-    //         return 'Ідеальним може бути лише ціле число.';
-    //     } else {
-    //         let sum = 0;
-    //         for (let i = n - 1; i >= 1; i--) {
-    //             if (!(n % i) && n !== 0) sum += i;
-    //         };
-    //         if (n == sum && n !== 0) {
-    //             return alert('твоє число ідеальне');
-    //         } else {
-    //             return alert('твоє число неідеальне');
-    //         };
-    //     }
-    // };
-    // alert(perfectNumber(num));
+    let num = +prompt('Введи, будь ласка, будь-яке число');
+    function perfectNumber(q) {
+        if (isNaN(q)) {
+            return 'Значення має бути числом. Будь ласка, перевірте вказані дані.';
+        } else if (!Number.isInteger(q)) {
+            return 'Ідеальним може бути лише ціле число.';
+        } else {
+            let sum = 0;
+            for (let i = q - 1; i >= 1; i--) {
+                if (!(q % i) && q !== 0) sum += i;
+            };
+            if (q == sum && q !== 0) {
+                return ('твоє число ідеальне');
+            } else {
+                return ('твоє число неідеальне');
+            };
+        }
+    };
+    alert(perfectNumber(num));
 
     // 2.Напиши функцію, яка приймає мінімальне і максимальне 
     // значення для діапазону, і виводить тільки ті числа 
